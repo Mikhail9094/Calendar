@@ -1,0 +1,31 @@
+.main {
+  margin: 10px;
+
+  fieldset {
+    width: fit-content;
+    border: 1px solid#ddd;
+    border-radius: 2px;
+    color: #8b7d7d;
+
+    &:hover {
+      border: 1px solid black;
+    }
+
+    legend {
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 15px;
+      padding: 0 5px 0 5px;
+    }
+
+    .input {
+      border: none;
+      outline: none;
+      text-align: center;
+      font-size: 18px;
+      padding: 0 0 7px 0;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+}
