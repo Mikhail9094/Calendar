@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./calendar.module.scss";
 import Dates from "./Dates/Dates";
 import { addMonths, addYears, format, subMonths, subYears } from "date-fns";
 import { DateContext } from "./context";
-
+import useOutsideClick from "../hooks/useOutsideClick";
 
 function Calendar() {
   const [date, setDate] = useState(new Date());
   const [visibilityDates, setVisibilityDates] = useState(false);
+
+  const ref = useRef<HTMLDivElement>(null);
+  
+  useOutsideClick(ref, (e) => setVisibilityDates(false));
 
   const onAddMonth = () => {
     setDate(addMonths(date, 1));
@@ -34,7 +38,7 @@ function Calendar() {
     <DateContext.Provider
       value={{ date, onAddMonth, onAddYear, onSubMonth, onSubYear, onChangeDay }}
     >
-      <div className={styles.main}>
+      <div className={styles.main} ref={ref}>
         <fieldset>
           <legend>Дата</legend>
           <input

@@ -19,13 +19,11 @@ function Dates() {
     <div className={styles.calendar}>
       <Header />
       <div className={styles.days}>
-        <span className={styles.dayWeek}>Пн</span>
-        <span className={styles.dayWeek}>Вт</span>
-        <span className={styles.dayWeek}>Ср</span>
-        <span className={styles.dayWeek}>Чт</span>
-        <span className={styles.dayWeek}>Пт</span>
-        <span className={`${styles.dayWeek} ${styles.weekend}`}>Сб</span>
-        <span className={`${styles.dayWeek} ${styles.weekend}`}>Вс</span>
+        {["Пн", "Вт", 'Ср', "Чт", "Пт", 'Сб', 'Вс'].map((weekDay, i, arr) => (
+          <span className={styles.dayWeek + " " + (i >= arr.length - 2 ? styles.weekend : "")}>
+            {weekDay}
+          </span>
+        ))}
         {daysInInterval(date).map((item, i) => (
           <div
             key={i}

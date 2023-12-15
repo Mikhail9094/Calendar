@@ -7,7 +7,7 @@ import { todayMonth } from "../constants";
 const Header = () => {
   const { date, onAddMonth, onAddYear, onSubMonth, onSubYear } = useContext(DateContext);
   return (
-    <div className={styles.buttons}>
+    <div className={styles.header}>
       <button type="button" className={styles.subYear} onClick={onSubYear}>
         {"<"}
       </button>
